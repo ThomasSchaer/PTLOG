@@ -1,0 +1,10 @@
+MongoDB
+Login to website:
+charlie.stender.cordes@gmail.com
+DatalogiBachelor2018!!
+
+Masterlogin for cluster:
+admin
+masterpassBachelor
+
+Interact with database using MongoDB Compass
