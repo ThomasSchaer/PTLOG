@@ -10,40 +10,35 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/one"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:text="@string/one"/>
 
         <Button
             android:id="@+id/button_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/two"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:text="@string/two"/>
 
         <Button
             android:id="@+id/button_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/three"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:text="@string/three"/>
 
         <Button
             android:id="@+id/button_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/four"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:text="@string/four"/>
 
         <Button
             android:id="@+id/button_5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/five"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:text="@string/five"/>
     </LinearLayout>
 
     <LinearLayout
@@ -56,40 +51,35 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/six"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:text="@string/six"/>
 
         <Button
             android:id="@+id/button_7"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/seven"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:text="@string/seven"/>
 
         <Button
             android:id="@+id/button_8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/eight"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:text="@string/eight"/>
 
         <Button
             android:id="@+id/button_9"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/nine"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:text="@string/nine"/>
 
         <Button
             android:id="@+id/button_0"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/zero"
-            style="?android:attr/borderlessButtonStyle"/>
+            android:text="@string/zero"/>
     </LinearLayout>
 
     <LinearLayout
@@ -97,20 +87,18 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button_delete"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/delete" />
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/delete" />
 
     <Button
         android:id="@+id/button_enter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="@string/enter"
-        style="?android:attr/borderlessButtonStyle"/>
+        android:text="@string/enter"/>
     </LinearLayout>
 </merge>
