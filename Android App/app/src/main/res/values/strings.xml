@@ -12,4 +12,33 @@
     <string name="zero">0</string>
     <string name="delete">delete</string>
     <string name="enter">enter</string>
+
+    <string name="q">q</string>
+    <string name="w">w</string>
+    <string name="e">e</string>
+    <string name="r">r</string>
+    <string name="t">t</string>
+    <string name="y">y</string>
+    <string name="u">u</string>
+    <string name="i">i</string>
+    <string name="o">o</string>
+    <string name="p">p</string>
+
+    <string name="a">a</string>
+    <string name="s">s</string>
+    <string name="d">d</string>
+    <string name="f">f</string>
+    <string name="g">g</string>
+    <string name="h">h</string>
+    <string name="j">j</string>
+    <string name="k">k</string>
+    <string name="l">l</string>
+
+    <string name="z">a</string>
+    <string name="x">s</string>
+    <string name="c">d</string>
+    <string name="v">f</string>
+    <string name="b">g</string>
+    <string name="n">h</string>
+    <string name="m">j</string>
 </resources>
