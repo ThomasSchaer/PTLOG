@@ -2,23 +2,14 @@
 package com.thomas.ptlog;
 
 import android.content.Context;
-import android.text.Editable;
-import android.text.Selection;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.view.View;
-import android.widget.Toast;
-
-import org.jetbrains.annotations.NotNull;
 
 
 public class InAppKeyboard extends LinearLayout implements View.OnClickListener
@@ -26,8 +17,7 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
     private SparseArray<String> keyValues = new SparseArray<>();
     private InputConnection inputConnection;
     private Boolean caps = false;
-    @NotNull
-    public MainActivity snot;
+    private KeyNextListener keyNextListener;
 
     public InAppKeyboard(Context context)
     {
@@ -227,6 +217,8 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
         if (inputConnection == null)
             return;
 
+        keyNextListener.OnClick(view.getId());
+
 /*
         if (view.getId() == R.id.button_backspace)
         {
@@ -263,7 +255,8 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
         else if (view.getId() == R.id.button_next)
         {
             System.out.println("next button");
-
+            keyNextListener.OnClick(view.getId());
+            /*
             //LayoutInflater li = LayoutInflater.from(getContext()); // 1
             //View v = li.inflate(R.layout.activity_main, null, false);
 
@@ -338,4 +331,8 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
     }
 
 
+    public void setKeyNextListener(KeyNextListener keyNextListener)
+    {
+        this.keyNextListener = keyNextListener;
+    }
 }

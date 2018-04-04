@@ -1,20 +1,11 @@
 package com.thomas.ptlog
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.InputType
 import android.view.inputmethod.EditorInfo
 import kotlinx.android.synthetic.main.activity_main.*
-import android.support.v4.widget.SearchViewCompat.setInputType
-import android.text.Editable
-import android.text.Selection
-import android.text.method.Touch.onTouchEvent
-import android.widget.EditText
-import android.view.MotionEvent
 import android.view.View
-import android.view.View.OnTouchListener
-import android.view.View.OnFocusChangeListener
 import android.widget.Button
 
 
@@ -35,12 +26,20 @@ class MainActivity : AppCompatActivity() {
 
         val inputConnectionForKG = KG_editText.onCreateInputConnection(EditorInfo())
 
-        keyboard.snot = this
         text2.setText("bar")
 
         //val inputConnectionForREP = REP_editText.onCreateInputConnection(EditorInfo())
 
+        keyboard.setKeyNextListener(object : KeyNextListener {
+            override fun OnClick(id: Int): Boolean {
+                if (id == R.id.button_next) {
+                    KG_editText.setText("sebastian")
+                }
+                return false
+            }
 
+
+        })
         keyboard.setInputConnection(inputConnectionForKG)
 
         text1.setText("ios")
@@ -58,25 +57,25 @@ class MainActivity : AppCompatActivity() {
         //keyboard.setInputConnection(inputConnectionForREP)
 
 
-            //val inputConnectionForREP = REP_editText.onCreateInputConnection(EditorInfo())
-            //keyboard.setInputConnection(inputConnectionForREP)
-            /*
-            val retrofit: Retrofit = Retrofit.Builder()
-                    .baseUrl("http://localhost:8080")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-            val exerciseService: ExerciseService = retrofit.create(ExerciseService::class.java)
-            val exercisesContainer = exerciseService.listExercises()
-            exercisesContainer.enqueue(object : Callback<ExerciseContainer> {
-                override fun onResponse(call: Call<ExerciseContainer>, response: Response<ExerciseContainer>) {
-                    val myItem = response.body()
-                }
+        //val inputConnectionForREP = REP_editText.onCreateInputConnection(EditorInfo())
+        //keyboard.setInputConnection(inputConnectionForREP)
+        /*
+        val retrofit: Retrofit = Retrofit.Builder()
+                .baseUrl("http://localhost:8080")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+        val exerciseService: ExerciseService = retrofit.create(ExerciseService::class.java)
+        val exercisesContainer = exerciseService.listExercises()
+        exercisesContainer.enqueue(object : Callback<ExerciseContainer> {
+            override fun onResponse(call: Call<ExerciseContainer>, response: Response<ExerciseContainer>) {
+                val myItem = response.body()
+            }
 
-                override fun onFailure(call: Call<ExerciseContainer>, t: Throwable) {
-                    //Handle failure
-                }
-            })
-            */
+            override fun onFailure(call: Call<ExerciseContainer>, t: Throwable) {
+                //Handle failure
+            }
+        })
+        */
 
 
     }
@@ -103,3 +102,4 @@ class MainActivity : AppCompatActivity() {
     }
     */
 }
+
