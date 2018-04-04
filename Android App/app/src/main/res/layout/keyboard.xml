@@ -1,304 +1,513 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp">
 
         <Button
             android:id="@+id/button_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/one"/>
+            android:text="@string/one"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/two"/>
+            android:text="@string/two"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/three"/>
+            android:text="@string/three"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/four"/>
+            android:text="@string/four"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/five"/>
+            android:text="@string/five"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp">
 
         <Button
             android:id="@+id/button_6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/six"/>
+            android:text="@string/six"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_7"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/seven"/>
+            android:text="@string/seven"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/eight"/>
+            android:text="@string/eight"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_9"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/nine"/>
+            android:text="@string/nine"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_0"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/zero"/>
+            android:text="@string/zero"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-    <Button
-        android:id="@+id/button_delete"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/delete" />
-
-    <Button
-        android:id="@+id/button_enter"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="@string/enter"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp">
 
         <Button
             android:id="@+id/button_q"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/q"/>
+            android:text="@string/q"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_w"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/w"/>
+            android:text="@string/w"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_e"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/e"/>
+            android:text="@string/e"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_r"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/r"/>
+            android:text="@string/r"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_t"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/t"/>
+            android:text="@string/t"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_y"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/y"/>
+            android:text="@string/y"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_u"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/u"/>
+            android:text="@string/u"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_i"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/i"/>
+            android:text="@string/i"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_o"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/o"/>
+            android:text="@string/o"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_p"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/p"/>
+            android:text="@string/p"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp">
 
         <Button
             android:id="@+id/button_a"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/a"/>
+            android:text="@string/a"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_s"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/s"/>
+            android:text="@string/s"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_d"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/d"/>
+            android:text="@string/d"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_f"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/f"/>
+            android:text="@string/f"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_g"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/g"/>
+            android:text="@string/g"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_h"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/h"/>
+            android:text="@string/h"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_j"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/j"/>
+            android:text="@string/j"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_k"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/k"/>
+            android:text="@string/k"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_l"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/l"/>
+            android:text="@string/l"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
+
+        <Button
+            android:id="@+id/button_dot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/dot"
+            android:layout_marginTop="-3dp"
+            android:layout_marginBottom="-3dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp">
+
+        <ImageButton
+            android:id="@+id/button_caps"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/caps_icon"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_z"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/z"/>
+            android:text="@string/z"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_x"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/x"/>
+            android:text="@string/x"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_c"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/c"/>
+            android:text="@string/c"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_v"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/v"/>
+            android:text="@string/v"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_b"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/b"/>
+            android:text="@string/b"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_n"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/n"/>
+            android:text="@string/n"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
 
         <Button
             android:id="@+id/button_m"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/m"/>
+            android:text="@string/m"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
+
+        <ImageButton
+            android:id="@+id/button_backspace"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/backspace_icon"
+            android:layout_marginTop="-4dp"
+            android:layout_marginBottom="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="2dp">
+
+        <Button
+            android:id="@+id/button_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/set"
+            android:layout_marginTop="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
+
+        <Button
+            android:id="@+id/button_space"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/space"
+            android:layout_marginTop="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/next"
+            android:layout_marginTop="-4dp"
+            android:layout_marginRight="-2dp"
+            android:layout_marginLeft="-2dp"/>
     </LinearLayout>
 </merge>

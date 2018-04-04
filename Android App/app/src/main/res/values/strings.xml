@@ -10,8 +10,10 @@
     <string name="eight">8</string>
     <string name="nine">9</string>
     <string name="zero">0</string>
-    <string name="delete">delete</string>
-    <string name="enter">enter</string>
+    <string name="dot">.</string>
+    <string name="space">Space</string>
+    <string name="next">Next</string>
+    <string name="set">Set</string>
 
     <string name="q">q</string>
     <string name="w">w</string>
@@ -34,11 +36,13 @@
     <string name="k">k</string>
     <string name="l">l</string>
 
-    <string name="z">a</string>
-    <string name="x">s</string>
-    <string name="c">d</string>
-    <string name="v">f</string>
-    <string name="b">g</string>
-    <string name="n">h</string>
-    <string name="m">j</string>
+    <string name="z">z</string>
+    <string name="x">x</string>
+    <string name="c">c</string>
+    <string name="v">v</string>
+    <string name="b">b</string>
+    <string name="n">n</string>
+    <string name="m">m</string>
+
+    <string name="delete_image_button">Image of the delete button</string>
 </resources>
