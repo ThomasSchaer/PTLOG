@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         //val inputConnectionForREP = REP_editText.onCreateInputConnection(EditorInfo())
 
         keyboard.setKeyNextListener(object : KeyNextListener {
-            override fun OnClick(id: Int) {
+            override fun onClick(id: Int) {
                 if (id == R.id.button_next) {
                     KG_editText.setText("sebastian")
                 }

@@ -217,7 +217,7 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
         if (inputConnection == null)
             return;
 
-        keyNextListener.OnClick(view.getId());
+        keyNextListener.onClick(view.getId());
 
 /*
         if (view.getId() == R.id.button_backspace)
@@ -255,7 +255,7 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
         else if (view.getId() == R.id.button_next)
         {
             System.out.println("next button");
-            keyNextListener.OnClick(view.getId());
+            keyNextListener.onClick(view.getId());
             /*
             //LayoutInflater li = LayoutInflater.from(getContext()); // 1
             //View v = li.inflate(R.layout.activity_main, null, false);
