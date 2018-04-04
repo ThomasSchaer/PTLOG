@@ -11,13 +11,12 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.view.View;
 
-
 public class InAppKeyboard extends LinearLayout implements View.OnClickListener
 {
     private SparseArray<String> keyValues = new SparseArray<>();
     private InputConnection inputConnection;
     private Boolean caps = false;
-    private KeyNextListener keyNextListener;
+    private KeyListener keyListener;
 
     public InAppKeyboard(Context context)
     {
@@ -213,28 +212,11 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
     @Override
     public void onClick(View view)
     {
-
         if (inputConnection == null)
             return;
 
-        keyNextListener.onClick(view.getId());
+        keyListener.onClick(view.getId());
 
-/*
-        if (view.getId() == R.id.button_backspace)
-        {
-            CharSequence selectedText = inputConnection.getSelectedText(0);
-
-            if (TextUtils.isEmpty(selectedText))
-            {
-                inputConnection.deleteSurroundingText(1, 0);
-            }
-            else
-            {
-                inputConnection.commitText("", 1);
-            }
-        }
-
-        else*/
         if (view.getId() == R.id.button_caps)
         {
             ImageButton capsButton = (ImageButton) view;
@@ -247,75 +229,12 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
             else
             {
                 capsButton.setImageResource(R.drawable.caps_icon);
-
             }
             setKeyValues();
-
         }
         else if (view.getId() == R.id.button_next)
         {
-            System.out.println("next button");
-            keyNextListener.onClick(view.getId());
-            /*
-            //LayoutInflater li = LayoutInflater.from(getContext()); // 1
-            //View v = li.inflate(R.layout.activity_main, null, false);
-
-            EditText kilogramEditText = snot.findViewById(R.id.REP_editText);
-            kilogramEditText.setText("Schaer");
-            System.out.println("->" + kilogramEditText.getText() + "<-");
-
-            /*
-
-
-            View.inflate();
-
-
-            LayoutInflater inflater = LayoutInflater.from(getActi.this); // 1
-
-            View theInflatedView = inflater.inflate(R.layout.activity_main, null); // 2 and 3
-
-            View v = inflate(R.id.)
-            */
-
-            /*
-            final InputConnection inputConnectionForREP = REP_editText.onCreateInputConnection(new EditorInfo());
-            REP_editText.requestFocus();
-
-            REP_editText.setOnFocusChangeListener(new OnFocusChangeListener()
-            {
-                @Override
-                public void onFocusChange(View view, boolean hasFocus)
-                {
-                    if (hasFocus)
-                    {
-
-
-
-                        setInputConnection(inputConnectionForREP);
-                    }
-                }
-            });
-            */
-
-
-            //requestFocusFromTouch();
-            //REP_editText.setSelection(0);
-
-            //Selection.setSelection((Editable) REP_editText.getText(),0);
-
-
-            //InputConnection inputConnectionForREP = REP_editText.onCreateInputConnection(new EditorInfo());
-
-
-            //setInputConnection(inputConnectionForREP);
-
-            //InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-
-
-            //InputConnection ic = REP_editText.inputonCreateInputConnection(new EditorInfo());
-            //setInputConnection(ic);
-
-
+            // Left empty intentionally, code moved to MainActivity
         }
         else
         {
@@ -324,15 +243,13 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
         }
     }
 
-
     public void setInputConnection(InputConnection ic)
     {
         inputConnection = ic;
     }
 
-
-    public void setKeyNextListener(KeyNextListener keyNextListener)
+    public void setKeyListener(KeyListener keyListener)
     {
-        this.keyNextListener = keyNextListener;
+        this.keyListener = keyListener;
     }
 }

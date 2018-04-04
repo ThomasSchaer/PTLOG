@@ -1,8 +1,5 @@
 package com.thomas.ptlog
 
-interface KeyNextListener  {
-
+interface KeyListener {
     fun onClick(id: Int)
-
-
 }
