@@ -18,12 +18,16 @@ import android.widget.LinearLayout;
 import android.view.View;
 import android.widget.Toast;
 
+import org.jetbrains.annotations.NotNull;
+
 
 public class InAppKeyboard extends LinearLayout implements View.OnClickListener
 {
     private SparseArray<String> keyValues = new SparseArray<>();
     private InputConnection inputConnection;
     private Boolean caps = false;
+    @NotNull
+    public MainActivity snot;
 
     public InAppKeyboard(Context context)
     {
@@ -238,7 +242,8 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
             }
         }
 
-        else*/ if (view.getId() == R.id.button_caps)
+        else*/
+        if (view.getId() == R.id.button_caps)
         {
             ImageButton capsButton = (ImageButton) view;
             caps = !caps;
@@ -259,13 +264,16 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
         {
             System.out.println("next button");
 
-            LayoutInflater li = LayoutInflater.from(getContext()); // 1
-            View v = li.inflate(R.layout.activity_main,null, false);
+            //LayoutInflater li = LayoutInflater.from(getContext()); // 1
+            //View v = li.inflate(R.layout.activity_main, null, false);
 
-            EditText KG_editText = v.findViewById(R.id.KG_editText);
-            KG_editText.setText("Schaer");
-            System.out.println("->"+KG_editText.getText()+"<-");
+            EditText kilogramEditText = snot.findViewById(R.id.REP_editText);
+            kilogramEditText.setText("Schaer");
+            System.out.println("->" + kilogramEditText.getText() + "<-");
+
             /*
+
+
             View.inflate();
 
 
@@ -297,7 +305,6 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
             */
 
 
-
             //requestFocusFromTouch();
             //REP_editText.setSelection(0);
 
@@ -310,8 +317,6 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
             //setInputConnection(inputConnectionForREP);
 
             //InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-
-
 
 
             //InputConnection ic = REP_editText.inputonCreateInputConnection(new EditorInfo());

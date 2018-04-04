@@ -35,13 +35,17 @@ class MainActivity : AppCompatActivity() {
 
         val inputConnectionForKG = KG_editText.onCreateInputConnection(EditorInfo())
 
+        keyboard.snot = this
+        text2.setText("bar")
 
         //val inputConnectionForREP = REP_editText.onCreateInputConnection(EditorInfo())
 
 
         keyboard.setInputConnection(inputConnectionForKG)
 
-        /*
+        text1.setText("ios")
+        text1.setSelection(0);
+
         val button = findViewById<View>(android.R.id.button1) as Button
 
 
@@ -49,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             //Selection.setSelection(REP_editText.editableText, 0)
             REP_editText.requestFocus()
         }
-        */
+
 
         //keyboard.setInputConnection(inputConnectionForREP)
 
