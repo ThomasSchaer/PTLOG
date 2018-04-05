@@ -2,6 +2,7 @@
 package com.thomas.ptlog;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -217,7 +218,20 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
 
         keyListener.onClick(view.getId());
 
-        if (view.getId() == R.id.button_caps)
+        if (view.getId() == R.id.button_backspace)
+        {
+            CharSequence selectedText = inputConnection.getSelectedText(0);
+
+            if (TextUtils.isEmpty(selectedText))
+            {
+                inputConnection.deleteSurroundingText(1, 0);
+            }
+            else
+            {
+                inputConnection.commitText("", 1);
+            }
+        }
+        else if (view.getId() == R.id.button_caps)
         {
             ImageButton capsButton = (ImageButton) view;
             caps = !caps;
