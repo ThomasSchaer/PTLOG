@@ -8,9 +8,8 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="0dp"
         android:layout_marginLeft="2dp"
-
         android:layout_marginRight="2dp"
         android:layout_weight="1"
         android:orientation="horizontal">
@@ -19,37 +18,31 @@
             android:id="@+id/kilogramEditText"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-
             android:layout_marginBottom="6dp"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="3dp"
             android:layout_marginTop="6dp"
-
             android:layout_weight="1"
             android:background="@color/colorNiceBlue"
             android:gravity="center" />
 
         <EditText
-            android:id="@+id/REP_editText"
+            android:id="@+id/repetitionEditText"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-
             android:layout_marginBottom="6dp"
             android:layout_marginLeft="3dp"
             android:layout_marginRight="6dp"
             android:layout_marginTop="6dp"
-
             android:layout_weight="1"
             android:background="@color/colorNiceBlue"
             android:gravity="center" />
-
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:orientation="horizontal">
