@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity()
         moveEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         moveEditText.setTextIsSelectable(true)
 
+        val inputConnectionMove = moveEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionKilograms = kilogramEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionRepetition = repetitionEditText.onCreateInputConnection(EditorInfo())
-        val inputConnectionMove = moveEditText.onCreateInputConnection(EditorInfo())
 
         keyboard.run {
             setInputConnection(inputConnectionMove)
@@ -74,6 +74,13 @@ class MainActivity : AppCompatActivity()
                     }
                 }
             })
+        }
+
+        moveEditText.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus)
+            {
+                keyboard.setInputConnection(inputConnectionMove)
+            }
         }
 
         kilogramEditText.setOnFocusChangeListener { _, hasFocus ->
