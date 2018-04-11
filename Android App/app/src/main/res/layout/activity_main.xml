@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:background="@color/colorNiceBlue"
             android:gravity="center"
-            android:hint="Exercise name..."/>
+            android:hint="Exercise name..." />
     </LinearLayout>
 
     <LinearLayout
@@ -47,7 +47,7 @@
             android:layout_weight="1"
             android:background="@color/colorNiceBlue"
             android:gravity="center"
-            android:hint="Weight..."/>
+            android:hint="Weight..." />
 
         <EditText
             android:id="@+id/repetitionEditText"
@@ -60,7 +60,7 @@
             android:layout_weight="1"
             android:background="@color/colorNiceBlue"
             android:gravity="center"
-            android:hint="Repetitions..."/>
+            android:hint="Repetitions..." />
 
     </LinearLayout>
 
