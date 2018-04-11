@@ -44,6 +44,10 @@ class MainActivity : AppCompatActivity()
                         }
                         println("This println should be replaced with a method to add to database")
                     }
+                    if (id == R.id.button_set)
+                    {
+                        println("This println should be replaced with a method to add to database")
+                    }
                 }
             })
         }

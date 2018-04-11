@@ -250,6 +250,10 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
         {
             // Left empty intentionally, code moved to MainActivity
         }
+        else if (view.getId() == R.id.button_set)
+        {
+            // Left empty intentionally, code moved to MainActivity
+        }
         else
         {
             String value = keyValues.get(view.getId());
