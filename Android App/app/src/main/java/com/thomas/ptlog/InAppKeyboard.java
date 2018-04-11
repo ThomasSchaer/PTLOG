@@ -150,18 +150,20 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
         button_m.setOnClickListener(this);
         button_m.setTag("letter");
 
-        Button buttonEnter = findViewById(R.id.button_dot);
-        buttonEnter.setOnClickListener(this);
-        ImageButton buttonCaps = findViewById(R.id.button_caps);
-        buttonCaps.setOnClickListener(this);
-        ImageButton buttonBackspace = findViewById(R.id.button_backspace);
-        buttonBackspace.setOnClickListener(this);
-        Button buttonSet = findViewById(R.id.button_set);
-        buttonSet.setOnClickListener(this);
-        Button buttonSpace = findViewById(R.id.button_space);
-        buttonSpace.setOnClickListener(this);
-        Button buttonNext = findViewById(R.id.button_next);
-        buttonNext.setOnClickListener(this);
+        Button button_dot = findViewById(R.id.button_dot);
+        button_dot.setOnClickListener(this);
+        button_dot.setTag("letter");
+        ImageButton button_caps = findViewById(R.id.button_caps);
+        button_caps.setOnClickListener(this);
+        ImageButton button_backspace = findViewById(R.id.button_backspace);
+        button_backspace.setOnClickListener(this);
+        Button button_set = findViewById(R.id.button_set);
+        button_set.setOnClickListener(this);
+        Button button_space = findViewById(R.id.button_space);
+        button_space.setOnClickListener(this);
+        button_space.setTag("letter");
+        Button button_next = findViewById(R.id.button_next);
+        button_next.setOnClickListener(this);
 
         keyValues.put(R.id.button_1, "1");
         keyValues.put(R.id.button_2, "2");
