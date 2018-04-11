@@ -33,17 +33,19 @@ class MainActivity : AppCompatActivity()
             {
                 override fun onClick(id: Int)
                 {
-                    val myView = findViewById<View>(id)
-                    val myTag = myView.tag.toString()
-                    println("$myTag is tag")
+                    val clickedView = findViewById<View>(id)
 
-                    if (myTag == "number")
+                    if (clickedView.tag != null)
                     {
-                        keyboard.setInputConnection(inputConnectionMove)
-                        moveEditText.requestFocus()
-                        keyboard.commitText(myView)
-                        println("thomas")
+                        val myTag = clickedView.tag
+                        if (myTag == "letter")
+                        {
+                            keyboard.setInputConnection(inputConnectionMove)
+                            moveEditText.requestFocus()
+                            keyboard.commitText(clickedView)
+                        }
                     }
+
                     if (id == R.id.button_next)
                     {
                         if (moveEditText.text.isEmpty())

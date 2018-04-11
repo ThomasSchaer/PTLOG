@@ -71,58 +71,84 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
 
         Button button_q = findViewById(R.id.button_q);
         button_q.setOnClickListener(this);
+        button_q.setTag("letter");
         Button button_w = findViewById(R.id.button_w);
         button_w.setOnClickListener(this);
+        button_w.setTag("letter");
         Button button_e = findViewById(R.id.button_e);
         button_e.setOnClickListener(this);
+        button_e.setTag("letter");
         Button button_r = findViewById(R.id.button_r);
         button_r.setOnClickListener(this);
+        button_r.setTag("letter");
         Button button_t = findViewById(R.id.button_t);
         button_t.setOnClickListener(this);
+        button_t.setTag("letter");
         Button button_y = findViewById(R.id.button_y);
         button_y.setOnClickListener(this);
+        button_y.setTag("letter");
         Button button_u = findViewById(R.id.button_u);
         button_u.setOnClickListener(this);
+        button_u.setTag("letter");
         Button button_i = findViewById(R.id.button_i);
         button_i.setOnClickListener(this);
+        button_i.setTag("letter");
         Button button_o = findViewById(R.id.button_o);
         button_o.setOnClickListener(this);
+        button_o.setTag("letter");
         Button button_p = findViewById(R.id.button_p);
         button_p.setOnClickListener(this);
+        button_p.setTag("letter");
 
         Button button_a = findViewById(R.id.button_a);
         button_a.setOnClickListener(this);
+        button_a.setTag("letter");
         Button button_s = findViewById(R.id.button_s);
         button_s.setOnClickListener(this);
+        button_s.setTag("letter");
         Button button_d = findViewById(R.id.button_d);
         button_d.setOnClickListener(this);
+        button_d.setTag("letter");
         Button button_f = findViewById(R.id.button_f);
         button_f.setOnClickListener(this);
+        button_f.setTag("letter");
         Button button_g = findViewById(R.id.button_g);
         button_g.setOnClickListener(this);
+        button_g.setTag("letter");
         Button button_h = findViewById(R.id.button_h);
         button_h.setOnClickListener(this);
+        button_h.setTag("letter");
         Button button_j = findViewById(R.id.button_j);
         button_j.setOnClickListener(this);
+        button_j.setTag("letter");
         Button button_k = findViewById(R.id.button_k);
         button_k.setOnClickListener(this);
+        button_k.setTag("letter");
         Button button_l = findViewById(R.id.button_l);
         button_l.setOnClickListener(this);
+        button_l.setTag("letter");
 
         Button button_z = findViewById(R.id.button_z);
         button_z.setOnClickListener(this);
+        button_z.setTag("letter");
         Button button_x = findViewById(R.id.button_x);
         button_x.setOnClickListener(this);
+        button_x.setTag("letter");
         Button button_c = findViewById(R.id.button_c);
         button_c.setOnClickListener(this);
+        button_c.setTag("letter");
         Button button_v = findViewById(R.id.button_v);
         button_v.setOnClickListener(this);
+        button_v.setTag("letter");
         Button button_b = findViewById(R.id.button_b);
         button_b.setOnClickListener(this);
+        button_b.setTag("letter");
         Button button_n = findViewById(R.id.button_n);
         button_n.setOnClickListener(this);
+        button_n.setTag("letter");
         Button button_m = findViewById(R.id.button_m);
         button_m.setOnClickListener(this);
+        button_m.setTag("letter");
 
         Button buttonEnter = findViewById(R.id.button_dot);
         buttonEnter.setOnClickListener(this);
@@ -241,7 +267,7 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
                 inputConnection.commitText("", 1);
             }
         }
-        else if (view.getId() == R.id.button_caps)
+        if (view.getId() == R.id.button_caps)
         {
             ImageButton capsButton = (ImageButton) view;
             caps = !caps;
@@ -256,18 +282,9 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
             }
             setKeyValues();
         }
-        else if (view.getId() == R.id.button_next)
+        if (view.getTag() == "number")
         {
-            // Left empty intentionally, code moved to MainActivity
-        }
-        else if (view.getId() == R.id.button_set)
-        {
-            // Left empty intentionally, code moved to MainActivity
-        }
-        else if ("number" == view.getTag())
-        {
-            System.out.println("YASS");
-            //commitText(view);
+            commitText(view);
         }
     }
 
