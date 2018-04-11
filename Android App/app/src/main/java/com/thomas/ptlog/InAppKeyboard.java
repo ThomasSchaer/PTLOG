@@ -6,11 +6,11 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.inputmethod.InputConnection;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.view.View;
 
 public class InAppKeyboard extends LinearLayout implements View.OnClickListener
 {
@@ -37,27 +37,37 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
 
     private void init(Context context)
     {
-        LayoutInflater.from(context).inflate(R.layout.keyboard, this, true);
+        LayoutInflater.from(context).inflate(R.layout.keyboard_qwerty, this, true);
         Button button_1 = findViewById(R.id.button_1);
         button_1.setOnClickListener(this);
+        button_1.setTag("number");
         Button button_2 = findViewById(R.id.button_2);
         button_2.setOnClickListener(this);
+        button_2.setTag("number");
         Button button_3 = findViewById(R.id.button_3);
         button_3.setOnClickListener(this);
+        button_3.setTag("number");
         Button button_4 = findViewById(R.id.button_4);
         button_4.setOnClickListener(this);
+        button_4.setTag("number");
         Button button_5 = findViewById(R.id.button_5);
         button_5.setOnClickListener(this);
+        button_5.setTag("number");
         Button button_6 = findViewById(R.id.button_6);
         button_6.setOnClickListener(this);
+        button_6.setTag("number");
         Button button_7 = findViewById(R.id.button_7);
         button_7.setOnClickListener(this);
+        button_7.setTag("number");
         Button button_8 = findViewById(R.id.button_8);
         button_8.setOnClickListener(this);
+        button_8.setTag("number");
         Button button_9 = findViewById(R.id.button_9);
         button_9.setOnClickListener(this);
+        button_9.setTag("number");
         Button button_0 = findViewById(R.id.button_0);
         button_0.setOnClickListener(this);
+        button_0.setTag("number");
 
         Button button_q = findViewById(R.id.button_q);
         button_q.setOnClickListener(this);
@@ -254,11 +264,17 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
         {
             // Left empty intentionally, code moved to MainActivity
         }
-        else
+        else if ("number" == view.getTag())
         {
-            String value = keyValues.get(view.getId());
-            inputConnection.commitText(value, 1);
+            System.out.println("YASS");
+            //commitText(view);
         }
+    }
+
+    public void commitText(View view)
+    {
+        String value = keyValues.get(view.getId());
+        inputConnection.commitText(value, 1);
     }
 
     public void setInputConnection(InputConnection ic)

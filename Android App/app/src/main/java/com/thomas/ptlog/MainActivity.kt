@@ -3,6 +3,7 @@ package com.thomas.ptlog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.InputType
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -32,6 +33,17 @@ class MainActivity : AppCompatActivity()
             {
                 override fun onClick(id: Int)
                 {
+                    val myView = findViewById<View>(id)
+                    val myTag = myView.tag.toString()
+                    println("$myTag is tag")
+
+                    if (myTag == "number")
+                    {
+                        keyboard.setInputConnection(inputConnectionMove)
+                        moveEditText.requestFocus()
+                        keyboard.commitText(myView)
+                        println("thomas")
+                    }
                     if (id == R.id.button_next)
                     {
                         if (moveEditText.text.isEmpty())
