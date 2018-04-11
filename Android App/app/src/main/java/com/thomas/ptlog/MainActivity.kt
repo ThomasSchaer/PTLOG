@@ -19,17 +19,27 @@ class MainActivity : AppCompatActivity()
         repetitionEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         repetitionEditText.setTextIsSelectable(true)
 
+        moveEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
+        moveEditText.setTextIsSelectable(true)
+
         val inputConnectionKilograms = kilogramEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionRepetition = repetitionEditText.onCreateInputConnection(EditorInfo())
+        val inputConnectionMove = moveEditText.onCreateInputConnection(EditorInfo())
 
         keyboard.run {
-            setInputConnection(inputConnectionKilograms)
+            setInputConnection(inputConnectionMove)
             setKeyListener(object : KeyListener
             {
                 override fun onClick(id: Int)
                 {
                     if (id == R.id.button_next)
                     {
+                        if (moveEditText.text.isEmpty())
+                        {
+                            keyboard.setInputConnection(inputConnectionMove)
+                            moveEditText.requestFocus()
+                            return
+                        }
                         if (kilogramEditText.text.isEmpty())
                         {
                             keyboard.setInputConnection(inputConnectionKilograms)

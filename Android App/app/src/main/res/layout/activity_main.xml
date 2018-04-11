@@ -15,6 +15,28 @@
         android:orientation="horizontal">
 
         <EditText
+            android:id="@+id/moveEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="6dp"
+            android:layout_weight="1"
+            android:background="@color/colorNiceBlue"
+            android:gravity="center"
+            android:hint="Exercise name..."/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <EditText
             android:id="@+id/kilogramEditText"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -24,7 +46,8 @@
             android:layout_marginTop="6dp"
             android:layout_weight="1"
             android:background="@color/colorNiceBlue"
-            android:gravity="center" />
+            android:gravity="center"
+            android:hint="Weight..."/>
 
         <EditText
             android:id="@+id/repetitionEditText"
@@ -36,7 +59,8 @@
             android:layout_marginTop="6dp"
             android:layout_weight="1"
             android:background="@color/colorNiceBlue"
-            android:gravity="center" />
+            android:gravity="center"
+            android:hint="Repetitions..."/>
 
     </LinearLayout>
 
