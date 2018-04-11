@@ -6,7 +6,6 @@ import android.text.InputType
 import android.view.inputmethod.EditorInfo
 import kotlinx.android.synthetic.main.activity_main.*
 
-
 class MainActivity : AppCompatActivity()
 {
     override fun onCreate(saveInstanceState: Bundle?)
@@ -31,20 +30,32 @@ class MainActivity : AppCompatActivity()
                 {
                     if (id == R.id.button_next)
                     {
-                        keyboard.setInputConnection(inputConnectionRepetition)
+                        if (kilogramEditText.text.isEmpty())
+                        {
+                            keyboard.setInputConnection(inputConnectionKilograms)
+                            kilogramEditText.requestFocus()
+                            return
+                        }
+                        if (repetitionEditText.text.isEmpty())
+                        {
+                            keyboard.setInputConnection(inputConnectionRepetition)
+                            repetitionEditText.requestFocus()
+                            return
+                        }
+                        println("This println should be replaced with a method to add to database")
                     }
                 }
             })
         }
 
-        kilogramEditText.setOnFocusChangeListener { v, hasFocus ->
+        kilogramEditText.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus)
             {
                 keyboard.setInputConnection(inputConnectionKilograms)
             }
         }
 
-        repetitionEditText.setOnFocusChangeListener { v, hasFocus ->
+        repetitionEditText.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus)
             {
                 keyboard.setInputConnection(inputConnectionRepetition)
