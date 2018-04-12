@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.thomas.ptlog"
+        applicationId "thomas.ptlog"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
@@ -30,6 +30,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.3.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 }
