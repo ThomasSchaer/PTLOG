@@ -45,4 +45,8 @@
     <string name="m">m</string>
 
     <string name="delete_image_button">Image of the delete button</string>
+
+    <string name="HintExerciseName">Exercise name…</string>
+    <string name="HintWeight">Weight…</string>
+    <string name="HintRepetitions">Repetitions…</string>
 </resources>
