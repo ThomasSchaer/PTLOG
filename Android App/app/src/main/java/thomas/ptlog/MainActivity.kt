@@ -6,9 +6,19 @@ import android.text.InputType
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import kotlinx.android.synthetic.main.activity_main.*
+import android.R.menu
+import android.view.Menu
+
 
 class MainActivity : AppCompatActivity()
 {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean
+    {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.app_bar, menu)
+        return true
+    }
+
     override fun onCreate(saveInstanceState: Bundle?)
     {
         super.onCreate(saveInstanceState)
@@ -22,6 +32,7 @@ class MainActivity : AppCompatActivity()
 
         moveEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         moveEditText.setTextIsSelectable(true)
+
 
         val inputConnectionMove = moveEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionKilograms = kilogramEditText.onCreateInputConnection(EditorInfo())

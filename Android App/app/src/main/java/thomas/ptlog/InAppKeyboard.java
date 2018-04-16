@@ -276,11 +276,11 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
 
             if (caps)
             {
-                capsButton.setImageResource(R.drawable.caps_icon_pressed);
+                capsButton.setImageResource(R.drawable.capslock_pressed_icon);
             }
             else
             {
-                capsButton.setImageResource(R.drawable.caps_icon);
+                capsButton.setImageResource(R.drawable.capslock_icon);
             }
             setKeyValues();
         }
