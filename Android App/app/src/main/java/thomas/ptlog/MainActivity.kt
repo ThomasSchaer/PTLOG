@@ -1,28 +1,52 @@
 package thomas.ptlog
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.InputType
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import kotlinx.android.synthetic.main.activity_main.*
-import android.R.menu
-import android.view.Menu
-
 
 class MainActivity : AppCompatActivity()
 {
     override fun onCreateOptionsMenu(menu: Menu): Boolean
     {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.app_bar, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean
+    {
+        return when (item.itemId)
+        {
+            R.id.this_session ->
+            {
+                /*
+                val intent = Intent()
+                startActivity(intent)*/
+                println("hello")
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onCreate(saveInstanceState: Bundle?)
     {
         super.onCreate(saveInstanceState)
         setContentView(R.layout.activity_main)
+
+        /*
+        /** Called when the user taps the Send button */
+        fun sendMessage(view: View) {
+            val editText = findViewById<View>(R.id.this_session)
+            val intent = Intent()
+            startActivity(intent)
+        }
+        */
 
         kilogramEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         kilogramEditText.setTextIsSelectable(true)
@@ -33,10 +57,11 @@ class MainActivity : AppCompatActivity()
         moveEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         moveEditText.setTextIsSelectable(true)
 
-
         val inputConnectionMove = moveEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionKilograms = kilogramEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionRepetition = repetitionEditText.onCreateInputConnection(EditorInfo())
+
+
 
         keyboard.run {
             setInputConnection(inputConnectionMove)

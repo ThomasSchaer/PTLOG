@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/thisSession"
+        android:id="@+id/this_session"
         android:icon="@drawable/session_white_icon"
         app:showAsAction="always"
         android:title="This Session">
