@@ -24,10 +24,8 @@ class MainActivity : AppCompatActivity()
         {
             R.id.this_session ->
             {
-                /*
-                val intent = Intent()
-                startActivity(intent)*/
-                println("hello")
+                val myIntent = Intent(this, Session::class.java)
+                this.startActivity(myIntent)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -38,15 +36,6 @@ class MainActivity : AppCompatActivity()
     {
         super.onCreate(saveInstanceState)
         setContentView(R.layout.activity_main)
-
-        /*
-        /** Called when the user taps the Send button */
-        fun sendMessage(view: View) {
-            val editText = findViewById<View>(R.id.this_session)
-            val intent = Intent()
-            startActivity(intent)
-        }
-        */
 
         kilogramEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         kilogramEditText.setTextIsSelectable(true)
@@ -60,8 +49,6 @@ class MainActivity : AppCompatActivity()
         val inputConnectionMove = moveEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionKilograms = kilogramEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionRepetition = repetitionEditText.onCreateInputConnection(EditorInfo())
-
-
 
         keyboard.run {
             setInputConnection(inputConnectionMove)
