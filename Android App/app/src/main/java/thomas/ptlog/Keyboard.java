@@ -1,4 +1,3 @@
-
 package thomas.ptlog;
 
 import android.content.Context;
@@ -12,24 +11,24 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
-public class InAppKeyboard extends LinearLayout implements View.OnClickListener
+public class Keyboard extends LinearLayout implements View.OnClickListener
 {
     private SparseArray<String> keyValues = new SparseArray<>();
     private InputConnection inputConnection;
     private Boolean caps = false;
     private KeyListener keyListener;
 
-    public InAppKeyboard(Context context)
+    public Keyboard(Context context)
     {
         this(context, null, 0);
     }
 
-    public InAppKeyboard(Context context, AttributeSet attrs)
+    public Keyboard(Context context, AttributeSet attrs)
     {
         this(context, attrs, 0);
     }
 
-    public InAppKeyboard(Context context, AttributeSet attrs, int defStyleAttr)
+    public Keyboard(Context context, AttributeSet attrs, int defStyleAttr)
     {
         super(context, attrs, defStyleAttr);
         init(context);
@@ -37,7 +36,7 @@ public class InAppKeyboard extends LinearLayout implements View.OnClickListener
 
     private void init(Context context)
     {
-        LayoutInflater.from(context).inflate(R.layout.keyboard_qwerty, this, true);
+        LayoutInflater.from(context).inflate(R.layout.in_app_keyboard, this, true);
         Button button_1 = findViewById(R.id.button_1);
         button_1.setOnClickListener(this);
         button_1.setTag("number");
