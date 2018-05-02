@@ -19,9 +19,9 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="20sp"
             android:gravity="center"
-            android:text="Backend Test Text" />
+            android:text="Backend Test Text"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -40,8 +40,8 @@
             android:layout_height="fill_parent"
             android:layout_marginBottom="3dp"
             android:layout_marginEnd="6dp"
-            android:layout_marginRight="3dp"
             android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
             android:layout_marginStart="6dp"
             android:layout_marginTop="6dp"
             android:layout_weight="1"
@@ -64,8 +64,8 @@
             android:layout_height="fill_parent"
             android:layout_marginBottom="6dp"
             android:layout_marginEnd="3dp"
-            android:layout_marginRight="3dp"
             android:layout_marginLeft="6dp"
+            android:layout_marginRight="3dp"
             android:layout_marginStart="6dp"
             android:layout_marginTop="6dp"
             android:layout_weight="1"
@@ -79,8 +79,8 @@
             android:layout_height="fill_parent"
             android:layout_marginBottom="6dp"
             android:layout_marginEnd="6dp"
-            android:layout_marginRight="6dp"
             android:layout_marginLeft="3dp"
+            android:layout_marginRight="6dp"
             android:layout_marginStart="3dp"
             android:layout_marginTop="6dp"
             android:layout_weight="1"

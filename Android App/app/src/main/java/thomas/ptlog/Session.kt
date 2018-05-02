@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import kotlinx.android.synthetic.main.session.*
-import java.util.*
 
 class Session : AppCompatActivity() {
 
@@ -21,23 +20,17 @@ class Session : AppCompatActivity() {
         main_listview.adapter = MyCustomAdapter(this)
 
         button2.setOnClickListener {
-            println("Currentlly in array: ")
-            for (i in 0 until exerciseArray.size) {
-                println(exerciseArray[i].move)
-                println(exerciseArray[i].kilogram)
-                println(exerciseArray[i].repetition)
-            }
-            val extras = intent.extras
-            if (extras == null) {
-                println("no extra")
-            }
-            else {
-                val move = extras.getString("move")
-                val kilogram = extras.getInt("kilogram")
-                val repetition = extras.getInt("repetition")
+
+            val exerciseList = intent.getSerializableExtra("addExercise") as java.util.ArrayList<Exercise>
+            exerciseList.size
+
+            for (i in 0 until exerciseList.size) {
+                val move = exerciseList[i].move
+                val kilogram = exerciseList[i].kilogram
+                val repetition = exerciseList[i].repetition
                 exerciseArray.add(Exercise(move, kilogram, repetition))
             }
-            println("Now in array:")
+
             for (i in 0 until exerciseArray.size) {
                 println(exerciseArray[i].move)
                 println(exerciseArray[i].kilogram)

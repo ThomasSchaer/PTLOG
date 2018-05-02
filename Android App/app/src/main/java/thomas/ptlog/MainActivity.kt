@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -15,7 +16,8 @@ class MainActivity : AppCompatActivity() {
     var move: String = ""
     var kilogram: Int = 0
     var repetition: Int = 0
-    lateinit var myIntent: Intent
+    val exerciseArray = ArrayList<Exercise>()
+    lateinit var session: Intent
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.app_bar, menu)
@@ -25,10 +27,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.this_session -> {
-                myIntent.putExtra("move", move)
-                myIntent.putExtra("kilogram", kilogram)
-                myIntent.putExtra("repetition", repetition)
-                this.startActivity(myIntent)
+                this.startActivity(session)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -36,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(saveInstanceState: Bundle?) {
-        myIntent = Intent(this, Session::class.java)
+        session = Intent(this, Session::class.java)
 
         super.onCreate(saveInstanceState)
         setContentView(R.layout.activity_main)
@@ -70,33 +69,44 @@ class MainActivity : AppCompatActivity() {
                         }
                     }
 
+                    val moveEmpty = moveEditText.text.isEmpty()
+                    val kilogramEmpty = kilogramEditText.text.isEmpty()
+                    val repetitionEmpty = repetitionEditText.text.isEmpty()
+
+                    fun addExercise() {
+                        if (moveEmpty || kilogramEmpty || repetitionEmpty) {
+                            Toast.makeText(context, "Please fill out all fields", Toast.LENGTH_LONG).show()
+                        }
+                        else {
+                            move = moveEditText.text.toString()
+                            kilogram = Integer.parseInt(kilogramEditText.text.toString())
+                            repetition = Integer.parseInt(repetitionEditText.text.toString())
+                            exerciseArray.add(Exercise(move, kilogram, repetition))
+                            session.putExtra("addExercise", exerciseArray)
+                        }
+                    }
+
                     if (id == R.id.button_next) {
-                        if (moveEditText.text.isEmpty()) {
+                        if (moveEmpty) {
                             keyboard.setInputConnection(inputConnectionMove)
                             moveEditText.requestFocus()
                             return
                         }
-                        if (kilogramEditText.text.isEmpty()) {
+                        if (kilogramEmpty) {
                             keyboard.setInputConnection(inputConnectionKilograms)
                             kilogramEditText.requestFocus()
                             return
                         }
-                        if (repetitionEditText.text.isEmpty()) {
+                        if (repetitionEmpty) {
                             keyboard.setInputConnection(inputConnectionRepetition)
                             repetitionEditText.requestFocus()
                             return
                         }
-                        println("This println should be replaced with a method to add to database")
+                        addExercise()
                     }
+
                     if (id == R.id.button_set) {
-                        move = moveEditText.text.toString()
-                        kilogram = Integer.parseInt(kilogramEditText.text.toString())
-                        repetition = Integer.parseInt(repetitionEditText.text.toString())
-
-                        println("Added")
-
-                        intent.extras
-
+                        addExercise()
                     }
                 }
             })
