@@ -36,7 +36,7 @@ public class Keyboard extends LinearLayout implements View.OnClickListener
 
     private void init(Context context)
     {
-        LayoutInflater.from(context).inflate(R.layout.in_app_keyboard, this, true);
+        LayoutInflater.from(context).inflate(R.layout.keyboard, this, true);
         Button button_1 = findViewById(R.id.button_1);
         button_1.setOnClickListener(this);
         button_1.setTag("number");

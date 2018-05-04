@@ -49,4 +49,6 @@
     <string name="HintExerciseName">Exercise name…</string>
     <string name="HintWeight">Weight…</string>
     <string name="HintRepetitions">Repetitions…</string>
+
+    <string name="Stats">%1$d KG x %2$d reps</string>
 </resources>
