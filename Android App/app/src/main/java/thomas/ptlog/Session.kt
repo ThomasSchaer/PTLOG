@@ -1,6 +1,5 @@
 package thomas.ptlog
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
@@ -8,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import kotlinx.android.synthetic.main.row.view.*
 import kotlinx.android.synthetic.main.session.*
 
 class Session : AppCompatActivity() {
@@ -18,7 +18,7 @@ class Session : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.session)
-        session_mainList.adapter = MainListAdapter(this)
+        session_mainList.adapter = MainListAdapter()
         exerciseList = intent.getSerializableExtra("addExercise") as java.util.ArrayList<Exercise>
 
         for (exercise in exerciseList) {
@@ -28,9 +28,7 @@ class Session : AppCompatActivity() {
         }
     }
 
-    private inner class MainListAdapter(context: Context) : BaseAdapter() {
-
-        private val mContext: Context = context
+    private inner class MainListAdapter : BaseAdapter() {
 
         override fun getCount(): Int {
             return uniqueMoveList.size
@@ -46,25 +44,36 @@ class Session : AppCompatActivity() {
 
         override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
 
-            val layoutInflater = LayoutInflater.from(mContext)
-            val row = layoutInflater.inflate(R.layout.row, viewGroup, false)
-            val rowNameTextView = row.findViewById<TextView>(R.id.row_name)
-            val rowStatTextView = row.findViewById<TextView>(R.id.row_stat)
+            val row: View
+            if (convertView == null) {
+                val layoutInflater = LayoutInflater.from(viewGroup!!.context)
+                row = layoutInflater.inflate(R.layout.row, viewGroup, false)
+                val viewHolder = ViewHolder(row.name_textView, row.stat_textView)
+                row.tag = viewHolder
+            }
+            else {
+                row = convertView
+            }
 
-            rowNameTextView.text = uniqueMoveList[position]
+            val viewHolder = row.tag as ViewHolder
+
+            viewHolder.rowNameTextView.text = uniqueMoveList[position]
+            var stat = viewHolder.rowStatTextView.text
+
             for (exercise in exerciseList) {
                 if (exercise.move == uniqueMoveList[position]) {
-                    if (rowStatTextView.text == "Stats") {
-                        rowStatTextView.text = getString(R.string.Stats, exercise.kilogram, exercise.repetition)
-                    }
-                    else {
-                        rowStatTextView.text = rowStatTextView.text.toString() +
-                                "\n" +
-                                getString(R.string.Stats, exercise.kilogram, exercise.repetition)
-                    }
+                    stat =
+                        if (stat == "Stats") {
+                            getString(R.string.Stats, exercise.kilogram, exercise.repetition)
+                        }
+                        else {
+                            stat.toString() + "\n " + getString(R.string.Stats, exercise.kilogram, exercise.repetition)
+                        }
                 }
             }
             return row
         }
+
+        inner class ViewHolder(val rowNameTextView: TextView, val rowStatTextView: TextView)
     }
 }
