@@ -48,7 +48,7 @@ class Session : AppCompatActivity() {
             if (convertView == null) {
                 val layoutInflater = LayoutInflater.from(viewGroup!!.context)
                 row = layoutInflater.inflate(R.layout.row, viewGroup, false)
-                val viewHolder = ViewHolder(row.name_textView, row.stat_textView)
+                val viewHolder = ViewHolder(row.name_textView, row.stats_textView)
                 row.tag = viewHolder
             }
             else {
@@ -57,23 +57,18 @@ class Session : AppCompatActivity() {
 
             val viewHolder = row.tag as ViewHolder
 
-            viewHolder.rowNameTextView.text = uniqueMoveList[position]
-            var stat = viewHolder.rowStatTextView.text
-
+            var stats = ""
             for (exercise in exerciseList) {
                 if (exercise.move == uniqueMoveList[position]) {
-                    stat =
-                        if (stat == "Stats") {
-                            getString(R.string.Stats, exercise.kilogram, exercise.repetition)
-                        }
-                        else {
-                            stat.toString() + "\n " + getString(R.string.Stats, exercise.kilogram, exercise.repetition)
-                        }
+                    stats = stats + getString(R.string.Stats, exercise.kilogram, exercise.repetition) + "\n"
                 }
             }
+            viewHolder.name_textView.text = uniqueMoveList[position]
+            viewHolder.stats_textView.text = stats.substring(0, stats.length - 1)
+
             return row
         }
 
-        inner class ViewHolder(val rowNameTextView: TextView, val rowStatTextView: TextView)
+        inner class ViewHolder(val name_textView: TextView, val stats_textView: TextView)
     }
 }
