@@ -19,6 +19,7 @@ class Session : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.session)
         session_mainList.adapter = MainListAdapter()
+
         exerciseList = intent.getSerializableExtra("addExercise") as java.util.ArrayList<Exercise>
 
         for (exercise in exerciseList) {
@@ -29,7 +30,6 @@ class Session : AppCompatActivity() {
     }
 
     private inner class MainListAdapter : BaseAdapter() {
-
         override fun getCount(): Int {
             return uniqueMoveList.size
         }
