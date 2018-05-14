@@ -10,6 +10,11 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,11 +40,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(saveInstanceState: Bundle?) {
-        session = Intent(this, Session::class.java)
-
         super.onCreate(saveInstanceState)
         setContentView(R.layout.activity_main)
 
+        session = Intent(this, Session::class.java)
+        retrofit()
         kilogramEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         kilogramEditText.setTextIsSelectable(true)
 
@@ -131,6 +136,26 @@ class MainActivity : AppCompatActivity() {
                 keyboard.setInputConnection(inputConnectionRepetition)
             }
         }
+    }
+
+    private fun retrofit() {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://ptlog005.herokuapp.com")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val client = retrofit.create(ExerciseClient::class.java)
+        val getName = client.getExercise()
+        getName.enqueue(object : Callback<Exercise> {
+            override fun onFailure(call: Call<Exercise>?, t: Throwable?) {
+                Toast.makeText(this@MainActivity, "FAIL", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<Exercise>?, response: Response<Exercise>?) {
+                val exercise = response?.body()
+                Toast.makeText(this@MainActivity, "yas", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }
 
