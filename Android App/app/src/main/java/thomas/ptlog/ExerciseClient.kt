@@ -5,8 +5,8 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface ExerciseClient {
-    @GET("/")
-    fun getExercise(): Call<Exercise>
+    @GET("/exercises")
+    fun getExercises(): Call<List<Exercise>>
 
     @POST("/exercises")
     fun createExercise(): Call<Exercise>

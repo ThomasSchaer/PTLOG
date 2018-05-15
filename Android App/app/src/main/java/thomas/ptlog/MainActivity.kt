@@ -140,20 +140,22 @@ class MainActivity : AppCompatActivity() {
 
     private fun retrofit() {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://ptlog005.herokuapp.com")
+            .baseUrl("http://192.168.0.7:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         val client = retrofit.create(ExerciseClient::class.java)
-        val getName = client.getExercise()
-        getName.enqueue(object : Callback<Exercise> {
-            override fun onFailure(call: Call<Exercise>?, t: Throwable?) {
+        val exercisesCall = client.getExercises()
+        exercisesCall.enqueue(object : Callback<List<Exercise>> {
+            override fun onFailure(call: Call<List<Exercise>>?, t: Throwable?) {
                 Toast.makeText(this@MainActivity, "FAIL", Toast.LENGTH_SHORT).show()
             }
 
-            override fun onResponse(call: Call<Exercise>?, response: Response<Exercise>?) {
-                val exercise = response?.body()
-                Toast.makeText(this@MainActivity, "yas", Toast.LENGTH_SHORT).show()
+            override fun onResponse(call: Call<List<Exercise>>, response: Response<List<Exercise>>) {
+                val exercises = response.body()
+                exercises?.forEach {
+                    Toast.makeText(this@MainActivity, it.move, Toast.LENGTH_SHORT).show()
+                }
             }
         })
     }
