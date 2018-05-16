@@ -6,24 +6,57 @@
     android:orientation="vertical"
     tools:context="thomas.ptlog.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
+
+        android:id="@+id/dsa"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_marginLeft="2dp"
         android:layout_marginRight="2dp"
         android:layout_marginTop="3dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:text="hello">
+
+
+        <Button
+            android:id="@+id/postButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:text="POST" />
+
+        <Button
+            android:id="@+id/getButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:text="GET" />
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:id="@+id/editReturned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
             android:gravity="center"
-            android:text="Backend Test Text"
-            android:textSize="20sp" />
+            android:hint="Returned" />
 
-    </LinearLayout>
+        <EditText
+            android:id="@+id/editPost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:hint="Post"
+            android:layout_alignParentLeft="true" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"

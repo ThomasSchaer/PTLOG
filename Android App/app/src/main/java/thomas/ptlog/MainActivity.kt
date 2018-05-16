@@ -13,8 +13,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,7 +44,7 @@ class MainActivity : AppCompatActivity() {
 
         session = Intent(this, Session::class.java)
         session2 = Intent(this, Session2::class.java)
-        retrofit()
+
         kilogramEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         kilogramEditText.setTextIsSelectable(true)
 
@@ -56,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         moveEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         moveEditText.setTextIsSelectable(true)
 
+        postButton.setOnClickListener { retrofit() }
         val inputConnectionMove = moveEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionKilograms = kilogramEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionRepetition = repetitionEditText.onCreateInputConnection(EditorInfo())
@@ -141,12 +140,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun retrofit() {
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://ptlog-mongo.herokuapp.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val client = retrofit.create(ExerciseClient::class.java)
+        val client = ExerciseApi()
         val exercisesCall = client.getExercises()
         exercisesCall.enqueue(object : Callback<List<Exercise>> {
             override fun onFailure(call: Call<List<Exercise>>?, t: Throwable?) {
@@ -155,9 +149,18 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call<List<Exercise>>, response: Response<List<Exercise>>) {
                 val exercises = response.body()
-                exercises?.forEach {
-                    Toast.makeText(this@MainActivity, it.move, Toast.LENGTH_SHORT).show()
-                }
+                //editReturned.text = exercises?.joinToString { it.move }
+            }
+        })
+        val postExercises = client.postExercise(Exercise("dsad", 0, 2))
+        postExercises.enqueue(object : Callback<Exercise> {
+            override fun onFailure(call: Call<Exercise>?, t: Throwable?) {
+                Toast.makeText(this@MainActivity, "FAIL", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<Exercise>, response: Response<Exercise>) {
+                val exercise = response.body()
+                editReturned.text = exercise?.move
             }
         })
     }
