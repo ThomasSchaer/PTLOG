@@ -1,5 +1,6 @@
 package thomas.ptlog
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     val exerciseArray = ArrayList<Exercise>()
     lateinit var session: Intent
     lateinit var session2: Intent
+    private val client = ExerciseApi()
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.app_bar, menu)
@@ -54,7 +56,12 @@ class MainActivity : AppCompatActivity() {
         moveEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         moveEditText.setTextIsSelectable(true)
 
-        postButton.setOnClickListener { retrofit() }
+        getButton.setOnClickListener {
+            loadExercises()
+        }
+        postButton.setOnClickListener {
+            postExercise()
+        }
         val inputConnectionMove = moveEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionKilograms = kilogramEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionRepetition = repetitionEditText.onCreateInputConnection(EditorInfo())
@@ -139,30 +146,35 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun retrofit() {
-        val client = ExerciseApi()
-        val exercisesCall = client.getExercises()
-        exercisesCall.enqueue(object : Callback<List<Exercise>> {
-            override fun onFailure(call: Call<List<Exercise>>?, t: Throwable?) {
-                Toast.makeText(this@MainActivity, "FAIL", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onResponse(call: Call<List<Exercise>>, response: Response<List<Exercise>>) {
-                val exercises = response.body()
-                //editReturned.text = exercises?.joinToString { it.move }
-            }
-        })
-        val postExercises = client.postExercise(Exercise("dsad", 0, 2))
+    private fun postExercise() {
+        val postExercises = client.postExercise(Exercise(editPost.text.toString(), 10, 2))
         postExercises.enqueue(object : Callback<Exercise> {
             override fun onFailure(call: Call<Exercise>?, t: Throwable?) {
-                Toast.makeText(this@MainActivity, "FAIL", Toast.LENGTH_SHORT).show()
+                toast("FAIL")
             }
 
             override fun onResponse(call: Call<Exercise>, response: Response<Exercise>) {
                 val exercise = response.body()
                 editReturned.text = exercise?.move
+                toast(exercise?.move.toString())
+            }
+        })
+
+    }
+
+    private fun loadExercises() {
+        val exercisesCall = client.getExercises()
+        exercisesCall.enqueue(object : Callback<List<Exercise>> {
+            override fun onFailure(call: Call<List<Exercise>>?, t: Throwable?) {
+                toast("FAIL")
+            }
+
+            override fun onResponse(call: Call<List<Exercise>>, response: Response<List<Exercise>>) {
+                val exercises = response.body()
+                toast(exercises?.joinToString { it.move }.toString())
             }
         })
     }
 }
 
+fun Context.toast(message: CharSequence) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
