@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Session"></activity>
+        <activity android:name=".Session2"></activity>
     </application>
 
 </manifest>
