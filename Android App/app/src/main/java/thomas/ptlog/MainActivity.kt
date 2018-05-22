@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     var repetition: Int = 0
     val exerciseArray = ArrayList<Exercise>()
     lateinit var session: Intent
-    lateinit var session2: Intent
     private val client = ExerciseApi()
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -33,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.this_session -> {
-                this.startActivity(session2)
+                this.startActivity(session)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -45,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         session = Intent(this, Session::class.java)
-        session2 = Intent(this, Session2::class.java)
 
         kilogramEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         kilogramEditText.setTextIsSelectable(true)

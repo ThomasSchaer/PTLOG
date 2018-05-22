@@ -2,73 +2,43 @@ package thomas.ptlog
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.TextView
-import kotlinx.android.synthetic.main.row.view.*
-import kotlinx.android.synthetic.main.session.*
+import kotlinx.android.synthetic.main.session2.*
+import java.util.*
 
 class Session : AppCompatActivity() {
 
-    private var exerciseList = ArrayList<Exercise>()
+    private var serializableExerciseList = ArrayList<Exercise>()
     private var uniqueMoveList = ArrayList<String>()
+    private var parentList = ArrayList<ArrayList<Exercise>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.session)
-        session_mainList.adapter = MainListAdapter()
+        setContentView(R.layout.session2)
 
-        exerciseList = intent.getSerializableExtra("addExercise") as java.util.ArrayList<Exercise>
+        serializableExerciseList = intent.getSerializableExtra("addExercise") as java.util.ArrayList<Exercise>
 
-        for (exercise in exerciseList) {
-            if (!uniqueMoveList.contains(exercise.move)) {
-                uniqueMoveList.add(exercise.move)
+        serializableExerciseList.forEach {
+            if (!uniqueMoveList.contains(it.move)) {
+                uniqueMoveList.add(it.move)
             }
         }
-    }
 
-    private inner class MainListAdapter : BaseAdapter() {
-        override fun getCount(): Int {
-            return uniqueMoveList.size
+        uniqueMoveList.forEachIndexed { i, _ ->
+            parentList.add(i, arrayListOf())
         }
 
-        override fun getItemId(position: Int): Long {
-            return position.toLong()
+        val childList = HashMap<String, ArrayList<Exercise>>()
+        uniqueMoveList.forEachIndexed { i, move ->
+            childList[move] = parentList[i]
         }
 
-        override fun getItem(position: Int): Any {
-            return "TEST STRING"
-        }
-
-        override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
-
-            val row: View
-            if (convertView == null) {
-                val layoutInflater = LayoutInflater.from(viewGroup!!.context)
-                row = layoutInflater.inflate(R.layout.row, viewGroup, false)
-                val viewHolder = ViewHolder(row.name_textView, row.stats_textView)
-                row.tag = viewHolder
+        serializableExerciseList.forEach {
+            if (childList.containsKey(it.move)) {
+                childList[it.move]?.add(it)
             }
-            else {
-                row = convertView
-            }
-
-            val viewHolder = row.tag as ViewHolder
-
-            var stats = ""
-            for (exercise in exerciseList) {
-                if (exercise.move == uniqueMoveList[position]) {
-                    stats = stats + getString(R.string.Stats, exercise.kilogram, exercise.repetition) + "\n"
-                }
-            }
-            viewHolder.name_textView.text = uniqueMoveList[position]
-            viewHolder.stats_textView.text = stats.substring(0, stats.length - 1)
-
-            return row
         }
 
-        inner class ViewHolder(val name_textView: TextView, val stats_textView: TextView)
+        val myAdapter = ExpandableListAdapter(uniqueMoveList, childList)
+        exp_listView.setAdapter(myAdapter)
     }
 }

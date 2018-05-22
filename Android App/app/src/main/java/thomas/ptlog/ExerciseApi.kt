@@ -4,7 +4,7 @@ import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ExerciseApi() {
+class ExerciseApi {
 
     private val exerciseApi: ExerciseClient
 
