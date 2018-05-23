@@ -3,16 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Session">
+    tools:context=".MainActivity"
+    tools:orientation="vertical">
 
-    <ListView
-        android:id="@+id/session_mainList"
+    <ExpandableListView
+        android:id="@+id/expandableListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
-
-    </ListView>
-
+        android:layout_height="match_parent">
+    </ExpandableListView>
 
 </LinearLayout>
