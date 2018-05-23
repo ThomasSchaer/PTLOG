@@ -41,7 +41,7 @@ class ExpandableListAdapter(private val header_titles: ArrayList<String>, privat
     }
 
     override fun getGroupView(groupPosition: Int, isExpandable: Boolean, convertView: View?, parent: ViewGroup): View {
-        val row: View = LayoutInflater.from(parent.context).inflate(R.layout.parent_layout, parent, false)
+        val row = LayoutInflater.from(parent.context).inflate(R.layout.parent_layout, parent, false)
         val title = getGroup(groupPosition) as String
         val expandableListView = parent as ExpandableListView
         expandableListView.expandGroup(groupPosition)
@@ -53,7 +53,7 @@ class ExpandableListAdapter(private val header_titles: ArrayList<String>, privat
     }
 
     override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup): View {
-        val row: View = LayoutInflater.from(parent.context).inflate(R.layout.child_layout, parent, false)
+        val row = LayoutInflater.from(parent.context).inflate(R.layout.child_layout, parent, false)
         val exercise = getChild(groupPosition, childPosition) as Exercise
         val title = "${exercise.kilogram} KG x ${exercise.repetition} reps"
 
