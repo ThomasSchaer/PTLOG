@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseExpandableListAdapter
+import android.widget.ExpandableListView
 import kotlinx.android.synthetic.main.child_layout.view.*
 import kotlinx.android.synthetic.main.parent_layout.view.*
 import java.util.*
-import android.widget.ExpandableListView
 
 class ExpandableListAdapter(private val header_titles: ArrayList<String>, private val child_titles: HashMap<String, ArrayList<Exercise>>) : BaseExpandableListAdapter() {
 
@@ -41,10 +41,8 @@ class ExpandableListAdapter(private val header_titles: ArrayList<String>, privat
     }
 
     override fun getGroupView(groupPosition: Int, isExpandable: Boolean, convertView: View?, parent: ViewGroup): View {
-        val row: View
+        val row: View = LayoutInflater.from(parent.context).inflate(R.layout.parent_layout, parent, false)
         val title = getGroup(groupPosition) as String
-        val layoutInflater = LayoutInflater.from(parent.context)
-        row = layoutInflater.inflate(R.layout.parent_layout, parent, false)
         val expandableListView = parent as ExpandableListView
         expandableListView.expandGroup(groupPosition)
 
@@ -55,11 +53,9 @@ class ExpandableListAdapter(private val header_titles: ArrayList<String>, privat
     }
 
     override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup): View {
-        val row: View
+        val row: View = LayoutInflater.from(parent.context).inflate(R.layout.child_layout, parent, false)
         val exercise = getChild(groupPosition, childPosition) as Exercise
         val title = "${exercise.kilogram} KG x ${exercise.repetition} reps"
-        val layoutInflater = LayoutInflater.from(parent.context)
-        row = layoutInflater.inflate(R.layout.child_layout, parent, false)
 
         row.child_item.setTypeface(null, Typeface.BOLD)
         row.child_item.text = title
