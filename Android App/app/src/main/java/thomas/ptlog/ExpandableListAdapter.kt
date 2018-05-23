@@ -55,7 +55,7 @@ class ExpandableListAdapter(private val header_titles: ArrayList<String>, privat
     override fun getChildView(groupPosition: Int, childPosition: Int, isLastChild: Boolean, convertView: View?, parent: ViewGroup): View {
         val row = LayoutInflater.from(parent.context).inflate(R.layout.child_layout, parent, false)
         val exercise = getChild(groupPosition, childPosition) as Exercise
-        val title = "${exercise.kilogram} KG x ${exercise.repetition} reps"
+        val title = "${exercise.weight} KG x ${exercise.repetition} reps"
 
         row.child_item.setTypeface(null, Typeface.BOLD)
         row.child_item.text = title

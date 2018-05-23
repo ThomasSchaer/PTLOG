@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_child_delete"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:text="X"

@@ -104,7 +104,7 @@ class Keyboard @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         button_dot.tag = "letter"
         button_caps.setOnClickListener(this)
         button_backspace.setOnClickListener(this)
-        button_set.setOnClickListener(this)
+        button_save.setOnClickListener(this)
         button_space.setOnClickListener(this)
         button_space.tag = "letter"
         button_next.setOnClickListener(this)

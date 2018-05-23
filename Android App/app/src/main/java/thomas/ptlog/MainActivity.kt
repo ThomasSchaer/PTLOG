@@ -18,7 +18,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     var move: String = ""
-    var kilogram: Int = 0
+    var weight: Int = 0
     var repetition: Int = 0
     val exerciseArray = ArrayList<Exercise>()
     lateinit var session: Intent
@@ -45,8 +45,8 @@ class MainActivity : AppCompatActivity() {
 
         session = Intent(this, Session::class.java)
 
-        kilogramEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
-        kilogramEditText.setTextIsSelectable(true)
+        weightEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
+        weightEditText.setTextIsSelectable(true)
 
         repetitionEditText.setRawInputType(InputType.TYPE_CLASS_TEXT)
         repetitionEditText.setTextIsSelectable(true)
@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             postExercise()
         }
         val inputConnectionMove = moveEditText.onCreateInputConnection(EditorInfo())
-        val inputConnectionKilograms = kilogramEditText.onCreateInputConnection(EditorInfo())
+        val inputConnectionWeight = weightEditText.onCreateInputConnection(EditorInfo())
         val inputConnectionRepetition = repetitionEditText.onCreateInputConnection(EditorInfo())
 
         keyboard.run {
@@ -81,18 +81,19 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     val moveEmpty = moveEditText.text.isEmpty()
-                    val kilogramEmpty = kilogramEditText.text.isEmpty()
+                    val weightEmpty = weightEditText.text.isEmpty()
                     val repetitionEmpty = repetitionEditText.text.isEmpty()
 
                     fun addExercise() {
-                        if (moveEmpty || kilogramEmpty || repetitionEmpty) {
-                            Toast.makeText(context, "Please fill out all fields", Toast.LENGTH_LONG).show()
+                        if (moveEmpty || weightEmpty || repetitionEmpty) {
+                            Toast.makeText(context, "Please fill out all fields", Toast.LENGTH_LONG)
+                                .show()
                         }
                         else {
                             move = moveEditText.text.toString()
-                            kilogram = Integer.parseInt(kilogramEditText.text.toString())
+                            weight = Integer.parseInt(weightEditText.text.toString())
                             repetition = Integer.parseInt(repetitionEditText.text.toString())
-                            exerciseArray.add(Exercise(move, kilogram, repetition))
+                            exerciseArray.add(Exercise(move, weight, repetition))
                             session.putExtra("addExercise", exerciseArray)
                             //CREATE request here
                             Toast.makeText(context, "Exercise logged", Toast.LENGTH_LONG).show()
@@ -100,14 +101,9 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     if (id == R.id.button_next) {
-                        if (moveEmpty) {
-                            keyboard.setInputConnection(inputConnectionMove)
-                            moveEditText.requestFocus()
-                            return
-                        }
-                        if (kilogramEmpty) {
-                            keyboard.setInputConnection(inputConnectionKilograms)
-                            kilogramEditText.requestFocus()
+                        if (weightEmpty) {
+                            keyboard.setInputConnection(inputConnectionWeight)
+                            weightEditText.requestFocus()
                             return
                         }
                         if (repetitionEmpty) {
@@ -115,10 +111,18 @@ class MainActivity : AppCompatActivity() {
                             repetitionEditText.requestFocus()
                             return
                         }
-                        addExercise()
+                        if (weightEditText.hasFocus()) {
+
+                            keyboard.setInputConnection(inputConnectionRepetition)
+                            repetitionEditText.requestFocus()
+                        }
+                        else {
+                            keyboard.setInputConnection(inputConnectionWeight)
+                            weightEditText.requestFocus()
+                        }
                     }
 
-                    if (id == R.id.button_set) {
+                    if (id == R.id.button_save) {
                         addExercise()
                     }
                 }
@@ -131,9 +135,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        kilogramEditText.setOnFocusChangeListener { _, hasFocus ->
+        weightEditText.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
-                keyboard.setInputConnection(inputConnectionKilograms)
+                keyboard.setInputConnection(inputConnectionWeight)
             }
         }
 

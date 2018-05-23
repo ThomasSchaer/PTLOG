@@ -92,7 +92,7 @@
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/kilogramEditText"
+            android:id="@+id/weightEditText"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_marginBottom="6dp"
