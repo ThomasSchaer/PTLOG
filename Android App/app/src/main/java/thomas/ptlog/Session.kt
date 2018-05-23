@@ -7,7 +7,7 @@ import java.util.*
 
 class Session : AppCompatActivity() {
 
-    private var serializableExerciseList = ArrayList<Exercise>()
+    private var exerciseList = ArrayList<Exercise>()
     private var uniqueMoveList = ArrayList<String>()
     private var parentList = ArrayList<ArrayList<Exercise>>()
 
@@ -15,9 +15,13 @@ class Session : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.session)
 
-        serializableExerciseList = intent.getSerializableExtra("addExercise") as ArrayList<Exercise>
+        val exercisesExtra = intent.getSerializableExtra("Exercises")
 
-        serializableExerciseList.forEach {
+        if (exercisesExtra != null) {
+            exerciseList = exercisesExtra as ArrayList<Exercise>
+        }
+
+        exerciseList.forEach {
             if (!uniqueMoveList.contains(it.move)) {
                 uniqueMoveList.add(it.move)
             }
@@ -32,7 +36,7 @@ class Session : AppCompatActivity() {
             childList[move] = parentList[i]
         }
 
-        serializableExerciseList.forEach {
+        exerciseList.forEach {
             if (childList.containsKey(it.move)) {
                 childList[it.move]?.add(it)
             }
