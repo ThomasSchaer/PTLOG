@@ -17,7 +17,7 @@ class Keyboard @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     private val keyValues = SparseArray<String>()
     private var inputConnection: InputConnection? = null
     private var caps = false
-    private var keyListener: KeyListener? = null
+    private var keyListenerMain: KeyListenerMain? = null
 
     init {
         init(context)
@@ -194,7 +194,7 @@ class Keyboard @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     override fun onClick(view: View) {
         if (inputConnection == null) return
 
-        keyListener!!.onClick(view.id)
+        keyListenerMain!!.onClick(view.id)
 
         if (view.id == R.id.button_backspace) {
             val selectedText = inputConnection!!.getSelectedText(0)
@@ -232,7 +232,7 @@ class Keyboard @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         inputConnection = ic
     }
 
-    fun setKeyListener(keyListener: KeyListener) {
-        this.keyListener = keyListener
+    fun setKeyListener(keyListenerMain: KeyListenerMain) {
+        this.keyListenerMain = keyListenerMain
     }
 }

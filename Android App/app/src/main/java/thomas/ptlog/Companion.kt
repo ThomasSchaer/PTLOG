@@ -14,5 +14,9 @@ class Companion {
         fun tagNumberName(): String{
             return "number"
         }
+
+        fun exerciseListName(): String{
+            return "exerciseList"
+        }
     }
 }

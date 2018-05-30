@@ -10,7 +10,8 @@ import kotlinx.android.synthetic.main.child_layout.view.*
 import kotlinx.android.synthetic.main.parent_layout.view.*
 import java.util.*
 
-class ExpandableListAdapter(private val header_titles: ArrayList<String>, private val child_titles: HashMap<String, ArrayList<Exercise>>) : BaseExpandableListAdapter() {
+class ExpandableListAdapter(private val header_titles: ArrayList<String>, private val child_titles: HashMap<String,
+        ArrayList<Exercise>>, private val keyListenerSession: KeyListenerSession?) : BaseExpandableListAdapter() {
 
     override fun getGroupCount(): Int {
         return header_titles.size
@@ -60,6 +61,7 @@ class ExpandableListAdapter(private val header_titles: ArrayList<String>, privat
         row.child_item.setTypeface(null, Typeface.BOLD)
         row.child_item.text = title
 
+        row.button_child_delete.setOnClickListener { keyListenerSession!!.deleteExercise(exercise.move, exercise.weight, exercise.repetition) }
         return row
     }
 

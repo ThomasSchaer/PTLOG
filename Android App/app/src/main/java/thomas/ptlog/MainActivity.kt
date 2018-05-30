@@ -1,5 +1,6 @@
 package thomas.ptlog
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -14,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import thomas.ptlog.Companion.Companion.exerciseListName
 import thomas.ptlog.Companion.Companion.extraName
 import thomas.ptlog.Companion.Companion.tagLetterName
 
@@ -22,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     var move: String = ""
     var weight: Int = 0
     var repetition: Int = 0
-    val exercises = ArrayList<Exercise>()
+    var exercises = ArrayList<Exercise>()
     lateinit var session: Intent
     private val client = ExerciseApi()
 
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.this_session -> {
-                this.startActivity(session)
+                this.startActivityForResult(session, 1)
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -68,8 +70,7 @@ class MainActivity : AppCompatActivity() {
 
         keyboard.run {
             setInputConnection(inputConnectionMove)
-
-            setKeyListener(object : KeyListener {
+            setKeyListener(object : KeyListenerMain {
                 override fun onClick(id: Int) {
                     val clickedView = findViewById<View>(id)
 
@@ -146,6 +147,19 @@ class MainActivity : AppCompatActivity() {
         repetitionEditText.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 keyboard.setInputConnection(inputConnectionRepetition)
+            }
+        }
+    }
+
+    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                val exercisesExtra = data.getSerializableExtra(exerciseListName())
+                if (exercisesExtra != null) {
+                    exercises = exercisesExtra as ArrayList<Exercise>
+                    session.putExtra(extraName(), exercises)
+                }
             }
         }
     }
