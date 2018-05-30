@@ -14,13 +14,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import thomas.ptlog.Companion.Companion.extraName
+import thomas.ptlog.Companion.Companion.tagLetterName
 
 class MainActivity : AppCompatActivity() {
 
     var move: String = ""
     var weight: Int = 0
     var repetition: Int = 0
-    val exerciseArray = ArrayList<Exercise>()
+    val exercises = ArrayList<Exercise>()
     lateinit var session: Intent
     private val client = ExerciseApi()
 
@@ -73,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
                     if (clickedView.tag != null) {
                         val myTag = clickedView.tag
-                        if (myTag == "letter") {
+                        if (myTag == tagLetterName()) {
                             keyboard.setInputConnection(inputConnectionMove)
                             moveEditText.requestFocus()
                             keyboard.commitText(clickedView)
@@ -93,8 +95,8 @@ class MainActivity : AppCompatActivity() {
                             move = moveEditText.text.toString()
                             weight = Integer.parseInt(weightEditText.text.toString())
                             repetition = Integer.parseInt(repetitionEditText.text.toString())
-                            exerciseArray.add(Exercise(move, weight, repetition))
-                            session.putExtra("Exercises", exerciseArray)
+                            exercises.add(Exercise(move, weight, repetition))
+                            session.putExtra(extraName(), exercises)
                             //CREATE request here
                             Toast.makeText(context, "Exercise logged", Toast.LENGTH_LONG).show()
                         }

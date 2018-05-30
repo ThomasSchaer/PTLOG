@@ -10,6 +10,8 @@ import android.view.inputmethod.InputConnection
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.keyboard.view.*
+import thomas.ptlog.Companion.Companion.tagLetterName
+import thomas.ptlog.Companion.Companion.tagNumberName
 
 class Keyboard @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : LinearLayout(context, attrs, defStyleAttr), View.OnClickListener {
     private val keyValues = SparseArray<String>()
@@ -25,88 +27,88 @@ class Keyboard @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         LayoutInflater.from(context).inflate(R.layout.keyboard, this, true)
 
         button_1.setOnClickListener(this)
-        button_1.tag = "number"
+        button_1.tag = tagLetterName()
         button_2.setOnClickListener(this)
-        button_2.tag = "number"
+        button_2.tag = tagLetterName()
         button_3.setOnClickListener(this)
-        button_3.tag = "number"
+        button_3.tag = tagLetterName()
         button_4.setOnClickListener(this)
-        button_4.tag = "number"
+        button_4.tag = tagLetterName()
         button_5.setOnClickListener(this)
-        button_5.tag = "number"
+        button_5.tag = tagLetterName()
         button_6.setOnClickListener(this)
-        button_6.tag = "number"
+        button_6.tag = tagLetterName()
         button_7.setOnClickListener(this)
-        button_7.tag = "number"
+        button_7.tag = tagLetterName()
         button_8.setOnClickListener(this)
-        button_8.tag = "number"
+        button_8.tag = tagLetterName()
         button_9.setOnClickListener(this)
-        button_9.tag = "number"
+        button_9.tag = tagLetterName()
         button_0.setOnClickListener(this)
-        button_0.tag = "number"
+        button_0.tag = tagLetterName()
 
         button_q.setOnClickListener(this)
-        button_q.tag = "letter"
+        button_q.tag = tagLetterName()
         button_w.setOnClickListener(this)
-        button_w.tag = "letter"
+        button_w.tag = tagLetterName()
         button_e.setOnClickListener(this)
-        button_e.tag = "letter"
+        button_e.tag = tagLetterName()
         button_r.setOnClickListener(this)
-        button_r.tag = "letter"
+        button_r.tag = tagLetterName()
         button_t.setOnClickListener(this)
-        button_t.tag = "letter"
+        button_t.tag = tagLetterName()
         button_y.setOnClickListener(this)
-        button_y.tag = "letter"
+        button_y.tag = tagLetterName()
         button_u.setOnClickListener(this)
-        button_u.tag = "letter"
+        button_u.tag = tagLetterName()
         button_i.setOnClickListener(this)
-        button_i.tag = "letter"
+        button_i.tag = tagLetterName()
         button_o.setOnClickListener(this)
-        button_o.tag = "letter"
+        button_o.tag = tagLetterName()
         button_p.setOnClickListener(this)
-        button_p.tag = "letter"
+        button_p.tag = tagLetterName()
 
         button_a.setOnClickListener(this)
-        button_a.tag = "letter"
+        button_a.tag = tagLetterName()
         button_s.setOnClickListener(this)
-        button_s.tag = "letter"
+        button_s.tag = tagLetterName()
         button_d.setOnClickListener(this)
-        button_d.tag = "letter"
+        button_d.tag = tagLetterName()
         button_f.setOnClickListener(this)
-        button_f.tag = "letter"
+        button_f.tag = tagLetterName()
         button_g.setOnClickListener(this)
-        button_g.tag = "letter"
+        button_g.tag = tagLetterName()
         button_h.setOnClickListener(this)
-        button_h.tag = "letter"
+        button_h.tag = tagLetterName()
         button_j.setOnClickListener(this)
-        button_j.tag = "letter"
+        button_j.tag = tagLetterName()
         button_k.setOnClickListener(this)
-        button_k.tag = "letter"
+        button_k.tag = tagLetterName()
         button_l.setOnClickListener(this)
-        button_l.tag = "letter"
+        button_l.tag = tagLetterName()
 
         button_z.setOnClickListener(this)
-        button_z.tag = "letter"
+        button_z.tag = tagLetterName()
         button_x.setOnClickListener(this)
-        button_x.tag = "letter"
+        button_x.tag = tagLetterName()
         button_c.setOnClickListener(this)
-        button_c.tag = "letter"
+        button_c.tag = tagLetterName()
         button_v.setOnClickListener(this)
-        button_v.tag = "letter"
+        button_v.tag = tagLetterName()
         button_b.setOnClickListener(this)
-        button_b.tag = "letter"
+        button_b.tag = tagLetterName()
         button_n.setOnClickListener(this)
-        button_n.tag = "letter"
+        button_n.tag = tagLetterName()
         button_m.setOnClickListener(this)
-        button_m.tag = "letter"
+        button_m.tag = tagLetterName()
 
         button_dot.setOnClickListener(this)
-        button_dot.tag = "letter"
+        button_dot.tag = tagLetterName()
         button_caps.setOnClickListener(this)
         button_backspace.setOnClickListener(this)
         button_save.setOnClickListener(this)
         button_space.setOnClickListener(this)
-        button_space.tag = "letter"
+        button_space.tag = tagLetterName()
         button_next.setOnClickListener(this)
 
         keyValues.put(R.id.button_1, "1")
@@ -216,7 +218,7 @@ class Keyboard @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
             }
             setKeyValues()
         }
-        if (view.tag === "number") {
+        if (view.tag === tagNumberName()) {
             commitText(view)
         }
     }
