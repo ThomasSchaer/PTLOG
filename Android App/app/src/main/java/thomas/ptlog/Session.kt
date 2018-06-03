@@ -48,7 +48,6 @@ class Session : AppCompatActivity() {
 
         keyListenerSession = object : KeyListenerSession {
             override fun deleteExercise(move: String, weight: Int, repetition: Int) {
-
                 val mutableIterator = exerciseList.iterator()
                 for (it in mutableIterator) {
                     if (it.move == move && it.weight == weight && it.repetition == repetition) {
@@ -56,7 +55,6 @@ class Session : AppCompatActivity() {
                         break
                     }
                 }
-
                 intent.putExtra(exerciseListName(), exerciseList)
                 clicked = true
                 setResult(RESULT_OK, intent)

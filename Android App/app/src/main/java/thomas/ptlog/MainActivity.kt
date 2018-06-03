@@ -98,7 +98,6 @@ class MainActivity : AppCompatActivity() {
                             repetition = Integer.parseInt(repetitionEditText.text.toString())
                             exercises.add(Exercise(move, weight, repetition))
                             session.putExtra(extraName(), exercises)
-                            //CREATE request here
                             Toast.makeText(context, "Exercise logged", Toast.LENGTH_LONG).show()
                         }
                     }
