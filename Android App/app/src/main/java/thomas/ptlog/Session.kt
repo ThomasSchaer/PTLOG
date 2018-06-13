@@ -61,8 +61,7 @@ class Session : AppCompatActivity() {
                 finish()
             }
         }
-        val expandableListAdapter =
-            ExpandableListAdapter(uniqueMoveList, childList, keyListenerSession)
+        val expandableListAdapter = ExpandableListAdapter(uniqueMoveList, childList, keyListenerSession)
         expandableListView.setAdapter(expandableListAdapter)
     }
 
