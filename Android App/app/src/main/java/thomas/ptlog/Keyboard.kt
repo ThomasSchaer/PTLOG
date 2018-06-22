@@ -211,7 +211,7 @@ class Keyboard @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
             caps = !caps
 
             if (caps) {
-                capsButton.setImageResource(R.drawable.capslock_pressed_icon)
+                capsButton.setImageResource(R.drawable.capslock_pressed_icon_simplified)
             }
             else {
                 capsButton.setImageResource(R.drawable.capslock_icon)
